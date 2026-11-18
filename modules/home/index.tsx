@@ -108,7 +108,7 @@ export function LandingPage() {
                             onBlur={() => setIsFocused(false)}
                             placeholder={PLACEHOLDERS[placeholderIndex]}
                             rows={1}
-                            className="w-full resize-none bg-transparent px-5 pb-4 pt-5 text-sm placeholder:text-white/20 focus:outline-none sm:text-base"
+                            className="w-full resize-none bg-transparent px-5 pb-4 pt-5 text-sm text-white caret-blue-400 placeholder:text-white/30 focus:outline-none selection:bg-blue-500/30 sm:text-base"
                             style={{ minHeight: 56, maxHeight: 200 }}
                         />
 
@@ -576,20 +576,31 @@ export function LandingPage() {
                 <SectionHeading gray="Start Building," blue="For Free." />
 
                 <p className="mb-8 text-sm leading-relaxed text-white/40">
-                    Get 10 Free Generations On Sign Up. No Cedit Card Required.
+                    Get 10 Free Generations On Sign Up. No Credit Card Required.
                     <br />
                     Upgrade When You&apos;re Ready.
                 </p>
 
-                <SignInButton mode="modal">
+                {isSignedIn ? (
                     <Button
                         size="lg"
-                        className="relative h-11 rounded-full border border-blue-400/20 bg-blue-600 px-8 font-semibold text-white! shadow-lg shadow-blue-500/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-500 hover:text-white! hover:shadow-xl hover:shadow-blue-500/30 active:translate-y-0"
+                        onClick={() => router.push("/projects")}
+                        className="relative h-11 rounded-full border border-blue-400/20 bg-blue-600 px-8 font-semibold text-white shadow-lg shadow-blue-500/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-500 hover:text-white hover:shadow-xl hover:shadow-blue-500/30 active:translate-y-0"
                     >
-                        Get Started Free
-                        <ChevronRight className="h-4 w-4" />
+                        Go To Projects
+                        <ArrowRight className="h-4 w-4" />
                     </Button>
-                </SignInButton>
+                ) : (
+                    <SignInButton mode="modal">
+                        <Button
+                            size="lg"
+                            className="relative h-11 rounded-full border border-blue-400/20 bg-blue-600 px-8 font-semibold text-white shadow-lg shadow-blue-500/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-500 hover:text-white hover:shadow-xl hover:shadow-blue-500/30 active:translate-y-0"
+                        >
+                            Get Started Free
+                            <ChevronRight className="h-4 w-4" />
+                        </Button>
+                    </SignInButton>
+                )}
             </section>
 
             <footer className="relative z-10 border-t border-white/8 bg-[#080808] px-6 py-8">

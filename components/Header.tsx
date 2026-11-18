@@ -10,7 +10,7 @@ export const Header = async () => {
     const user = await checkUser();
 
     return (
-        <header className="fixed top-0 left-0 right-0 z-50 h-16 border-b border-white/6 bg-white/7 backdrop-blur-md">
+        <header className="fixed top-0 left-0 right-0 z-50 h-16 border-b border-white/10 bg-[#0a0a0a]/95 backdrop-blur-xl">
             <nav className="mx-auto flex h-full max-w-7xl items-center justify-between px-4 sm:px-6">
                 {/* Logo */}
                 <Link href="/" className="flex items-center gap-2 select-none">
@@ -28,14 +28,14 @@ export const Header = async () => {
                     <Show when="signed-in">
                         <Link
                             href="/projects"
-                            className="text-[13px] font-medium text-white/40 transition-colors hover:text-white/80"
+                            className="text-[13px] font-medium text-white/50 transition-colors hover:text-white"
                         >
                             Projects
                         </Link>
 
                         {user && (
                             <PricingModal>
-                                <span className="inline-flex h-8 items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 text-xs text-white/70">
+                                <span className="inline-flex h-8 items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 text-xs text-white/70 transition-colors hover:bg-white/10">
                                     <Zap className="h-3 w-3 fill-white/70" />
                                     {user.credits} Credits
                                 </span>
@@ -50,7 +50,7 @@ export const Header = async () => {
                             <Button
                                 variant="ghost"
                                 size="sm"
-                                className="text-[13px] font-medium text-white/50 hover:text-white/90 hover:bg-transparent"
+                                className="text-[13px] font-medium text-white/60 hover:text-white hover:bg-white/5"
                             >
                                 Sign In
                             </Button>
@@ -59,10 +59,10 @@ export const Header = async () => {
                         <SignInButton mode="modal">
                             <Button
                                 size="sm"
-                                className="inline-flex h-8 items-center gap-1.5 rounded-full bg-white px-4 text-[13px] font-semibold text-black hover:bg-white/90 active:scale-95"
+                                className="inline-flex h-9 items-center gap-1.5 rounded-full border border-blue-400/20 bg-blue-600 px-4 text-[13px] font-semibold text-white hover:bg-blue-500 hover:text-white active:scale-95"
                             >
                                 Get Started
-                                <ArrowRight className="h-3 w-3 opacity-60" />
+                                <ArrowRight className="h-3 w-3 opacity-80" />
                             </Button>
                         </SignInButton>
                     </Show>
